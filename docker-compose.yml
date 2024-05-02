@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+    ports:
+      - "8888:5432"
+
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL = postgres://root:root@postgres:8888/postgres
+    volumes:
+      - .:/usr/src/app
+
