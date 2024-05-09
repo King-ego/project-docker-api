@@ -1,7 +1,7 @@
 FROM node:latest
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./

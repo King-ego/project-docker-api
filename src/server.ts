@@ -24,7 +24,7 @@ AppDataSource.initialize().then(() => {
         return res.status(500).json({status: "error", error: "Internal server error"});
     } )
 
-    const Port = process.env.PORT || 3000;
+    const Port = process.env.API_PORT || 3000;
 
     app.listen(Port, () => {
         console.log('Server started on port 3333!');

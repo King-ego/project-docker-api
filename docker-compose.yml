@@ -23,5 +23,6 @@ services:
     environment:
       - DATABASE_URL = postgres://root:root@postgres:8888/postgres
     volumes:
-      - .:/usr/src/app
+      - .:/usr/app
+      - /usr/app/node_modules
 
